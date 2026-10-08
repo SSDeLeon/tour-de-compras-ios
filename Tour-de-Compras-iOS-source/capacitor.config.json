@@ -1,0 +1,20 @@
+{
+  "appId": "com.megababy.tourcompras",
+  "appName": "Tour de Compras",
+  "webDir": "app",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "always"
+  },
+  "server": {
+    "androidScheme": "https",
+    "iosScheme": "https"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}

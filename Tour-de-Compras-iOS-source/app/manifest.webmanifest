@@ -1,0 +1,20 @@
+{
+  "name": "Tour de Compras",
+  "short_name": "Compras",
+  "description": "Captura de compras en feria: proveedor, producto, CBM y orden. Funciona sin conexión.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#E7EBEA",
+  "theme_color": "#20302D",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "./icono.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
