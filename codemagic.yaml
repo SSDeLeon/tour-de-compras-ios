@@ -1,0 +1,30 @@
+workflows:
+  ios-simulator:
+    name: Tour de Compras - simulador de iPhone
+    max_build_duration: 60
+    instance_type: mac_mini_m2
+    environment:
+      node: latest
+      xcode: latest
+    scripts:
+      - name: Instalar dependencias y sincronizar Capacitor
+        script: |
+          cd "$CM_BUILD_DIR/Tour-de-Compras-iOS-source"
+          npm install --global pnpm
+          pnpm install --frozen-lockfile
+          pnpm exec cap sync ios
+      - name: Compilar para el simulador de iPhone
+        script: |
+          xcodebuild build \
+            -project "$CM_BUILD_DIR/Tour-de-Compras-iOS-source/ios/App/App.xcodeproj" \
+            -scheme App \
+            -sdk iphonesimulator \
+            -destination 'generic/platform=iOS Simulator' \
+            -configuration Debug \
+            -derivedDataPath "$CM_BUILD_DIR/build" \
+            CODE_SIGN_IDENTITY="" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+    artifacts:
+      - build/Build/Products/Debug-iphonesimulator/*.app
+      - /tmp/xcodebuild_logs/*.log
