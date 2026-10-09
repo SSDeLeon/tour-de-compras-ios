@@ -10,9 +10,8 @@ workflows:
       - name: Instalar dependencias y sincronizar Capacitor
         script: |
           cd "$CM_BUILD_DIR/Tour-de-Compras-iOS-source"
-          npm install --global pnpm
-          pnpm install --frozen-lockfile
-          pnpm exec cap sync ios
+          npx --yes pnpm@10 install --frozen-lockfile
+          npx --yes pnpm@10 exec cap sync ios
       - name: Compilar para el simulador de iPhone
         script: |
           xcodebuild build \
